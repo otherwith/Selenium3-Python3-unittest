@@ -48,7 +48,6 @@ class TestDemo(unittest.TestCase):
         self.assertEqual(self.browser.find_element(By.XPATH,"//*[@class='s_box_tab']/a[1]").text,"国内火车票","火车票查询页面未正确打开")
         self.browser.find_element(By.XPATH,"//*[@id='notice01']").send_keys("西安01")
         time.sleep(2)
-        #self.assertEqual(self.browser.find_element(By.XPATH,"//*[@class='search-city-select-uc-list' and contains(@style,'display: block')]/span[@class='c-hd']").text,"对不起，找不到：西安01","提示信息错误")
         self.assertEqual(self.browser.find_element(By.XPATH,"//*[@id='mainbody']/div[7]").text,"对不起,找不到：西安01","提示信息错误")
 
     def tearDown(self):
