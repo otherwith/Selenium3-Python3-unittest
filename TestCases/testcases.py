@@ -31,7 +31,7 @@ class TestDemo(unittest.TestCase):
         self.assertEqual(self.browser.find_element(By.XPATH, "//*[@class='trainList_title']/h2/strong[2]").text, "成都",
                          "出发站信息填写不正确")
         self.assertEqual(self.browser.find_element(By.XPATH,"//*[@id='dateObj']").get_attribute("value"),"2020-02-10","出发时间填写不正确")
-        self.browser.find_element(By.XPATH,"//*[@id='tbody-01-G8911']/div[1]/div[6]/div[1]/a").click()
+        self.browser.find_element(By.XPATH,"//*[starts-with(@id,'tbody-01-G89')]/div[1]/div[6]/div[1]/a").click()
         time.sleep(3)
         self.assertEqual(self.browser.find_element(By.XPATH,"//*[@id='aspnetForm']/div[4]/div[1]/div[3]/h2").is_displayed(),True,"乘客信息填写页面展示错误")
         self.browser.find_element(By.XPATH,"//*[@id='pasglistdiv']/div/ul/li[2]/input").send_keys("Aiyouz")
