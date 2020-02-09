@@ -35,3 +35,38 @@ class Base():
         :return:
         """
         self.browser.execute_script(str)
+
+    def url(self):
+        """
+        获取网址
+        :return:
+        """
+        return self.browser.current_url
+
+    def back(self):
+        """
+        后退
+        :return:
+        """
+        self.browser.back()
+
+    def forword(self):
+        """
+        前进
+        :return:
+        """
+        self.browser.forward()
+
+    def quit(self):
+        """
+        退出浏览器
+        :return:
+        """
+        self.browser.quit()
+
+    def open(self,url):
+        """
+        打开网址
+        :return: 
+        """
+        self.browser.get(url)
