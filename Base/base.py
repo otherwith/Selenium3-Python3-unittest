@@ -1,18 +1,27 @@
 from selenium import webdriver
 
-class Base():
-    def __init__(self,browser=webdriver.Chrome()):
-        self.browser = browser
 
-    def findele(self,*loactor):
+class Base():
+    driver = None
+
+    def __init__(self):
+        pass
+
+    @classmethod
+    def browser(cls):
+        if cls.driver is None:
+            cls.driver = webdriver.Chrome()
+        return cls.driver
+
+    def findele(self, *locator):
         """
         定位元素
         :param loactor:
         :return:
         """
-        return self.browser.find_element(*loactor)
+        return self.browser.find_element(*locator)
 
-    def click(self,*loactor):
+    def click(self, *loactor):
         """
         对元素进行点击操作
         :param loactor:
@@ -20,7 +29,7 @@ class Base():
         """
         self.findele(*loactor).click()
 
-    def sendkeys(self,*loactor,value):
+    def sendkeys(self, *loactor, value):
         """
         输入值
         :param loactor:
@@ -28,7 +37,7 @@ class Base():
         """
         self.findele(*loactor).send_keys(value)
 
-    def execute_js(self,str):
+    def execute_js(self, str):
         """
         执行js
         :param str:
@@ -64,7 +73,7 @@ class Base():
         """
         self.browser.quit()
 
-    def open(self,url):
+    def open(self, url):
         """
         打开网址
         :return: 

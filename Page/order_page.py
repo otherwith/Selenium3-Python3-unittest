@@ -4,8 +4,8 @@ import time
 
 class OrderPage(Base):
     """订单界面"""
-    def __init__(self,browser):
-        self.browser = browser
+    def __init__(self):
+        self.browser = Base.browser()
 
     def detail_name(self):
         """

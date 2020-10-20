@@ -4,8 +4,8 @@ import time
 
 class BookPage(Base):
     """预定车票界面"""
-    def __init__(self,browser):
-        self.browser = browser
+    def __init__(self):
+        self.browser = Base.browser()
 
     def book(self):
         """
